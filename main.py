@@ -3,6 +3,7 @@ import sys
 import tkinter as tk
 from funct import get_adjacency_list, display_adjacency_list
 
+#V2 starts
 pygame.init()
 GRID_SIZE = 10
 SQUARE_SIZE = 50
