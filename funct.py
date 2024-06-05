@@ -22,6 +22,7 @@ def get_adjacency_list(selected_squares):
 
     return adjacency_list
 
+
 def display_adjacency_list(selected_path):
     
     # Get the adjacency list
@@ -42,3 +43,13 @@ def display_adjacency_list(selected_path):
 
     # Run the tkinter event loop
     window.mainloop()
+    
+def assign_numbers_to_points(selected_path, existing_adjacency_list):
+    # Create a mapping between points and unique numbers in the selected path
+    point_to_number = {point: index + 1 for index, point in enumerate(selected_path)}
+
+    # Update the existing adjacency list with the unique numbers
+    updated_adjacency_list = {point_to_number[point]: [point_to_number[neighbor] for neighbor in neighbors]
+                              for point, neighbors in existing_adjacency_list.items()}
+
+    return point_to_number, updated_adjacency_list
