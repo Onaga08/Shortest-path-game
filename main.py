@@ -1,7 +1,7 @@
 import pygame
 import sys
 import tkinter as tk
-from funct import get_adjacency_list, display_adjacency_list
+from funct import get_adjacency_list, display_adjacency_list, assign_numbers_to_points
 
 #V2 starts
 pygame.init()
@@ -67,16 +67,6 @@ for square, neighbors in adjacency_list.items():
 pygame.quit()
 
 #display_adjacency_list(selected_path)
-
-def assign_numbers_to_points(selected_path, existing_adjacency_list):
-    # Create a mapping between points and unique numbers in the selected path
-    point_to_number = {point: index + 1 for index, point in enumerate(selected_path)}
-
-    # Update the existing adjacency list with the unique numbers
-    updated_adjacency_list = {point_to_number[point]: [point_to_number[neighbor] for neighbor in neighbors]
-                              for point, neighbors in existing_adjacency_list.items()}
-
-    return point_to_number, updated_adjacency_list
 
 # Example usage:
 point_to_number, updated_adjacency_list = assign_numbers_to_points(selected_path, adjacency_list)
